@@ -53,7 +53,7 @@ public class SearchDAO {
 			pstmt.setString(9, keyword);
 			//질의명령 꺼내고 내보내기
 			rs = pstmt.executeQuery();
-			System.out.println(rs);
+			System.out.println("##SearchDAO.java를 경유했습니다");
 			// 한칸 내려서 반복해서 뽑고
 			while (rs.next()) {
 				SearchVO vo = new SearchVO();
@@ -75,7 +75,7 @@ public class SearchDAO {
 				list.add(vo);
 			}
 		} catch (Exception e) {
-			System.out.println("DAO 오류");
+			System.out.println("!!SearchDAO.java 오류입니다.");
 			e.printStackTrace();
 		} finally {
 			db.close(rs);

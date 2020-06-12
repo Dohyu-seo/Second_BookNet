@@ -19,9 +19,48 @@
 <script type="text/javascript" src="/BookNet/js/jquery-3.5.0.min.js"></script>
 <script type="text/javascript" src="/BookNet/js/fixed.js"></script>
 <script type="text/javascript" src="/BookNet/js/search.js"></script>
-<script type="text/javascript" src="/BookNet/js/searchBtn.js"></script>
+<script>
+/*
+	이 script는 search페이지에서 상세페이지로 이동시킬 때 쓰일 js 입니다.
+	@author 서동혁
+	@version v.0.1.0
+	@since 2020.06.12
+*/
+$(document).ready(function() {
+	// 검색된 아이디 클릭
+	$('#searchIdBtn').click(function(){
+	//	$(this).attr('href','/BookNet/search/searchMember.cls');
+		$('#idKey').val('${KEYWORD}');
+		$('#test').val('${KEYWORD}');
+		$('#frm2').attr('action','/BookNet/search/searchTrampoline.jsp');
+		$('#frm2').submit();
+	})
+	// 검색된 책이름 클릭
+	$('#searchBookBtn').click(function(){
+	//	$(this).attr('href','/BookNet/search/searchBook.cls');
+		$('#bookKey').val('${KEYWORD}');
+		$('#test').val('${KEYWORD}');
+		$('#frm2').attr('action','/BookNet/search/searchTrampoline.jsp');
+		$('#frm2').submit();
+	})
+	// 검색된 해시태그 클릭
+	$('#searchHashBtn').click(function(){
+	//	$(this).attr('href','/BookNet/search/searchHash.cls');
+		$('#hashKey').val('${KEYWORD}');
+		$('#test').val('${KEYWORD}');
+		$('#frm2').attr('action','/BookNet/search/searchTrampoline.jsp');
+		$('#frm2').submit();
+	})
+});
+</script>
 </head>
 <body onload="printClock()" />
+<form method="GET" action="" id="frm2">
+	<input type="hidden" name="test" id="test">
+	<input type="hidden" name="idKey" id="idKey">
+	<input type="hidden" name="bookKey"id="bookKey">
+	<input type="hidden" name="hashKey" id="hashKey">
+</form>
 <form method="POST" action="" id="frm">
    <div>
       <!-- 본문부분 -->
@@ -56,7 +95,7 @@
                <div style="width: 100%; height: 204px;">
                   <span
                      style="color: #666; font-size: 14px; float: left; padding-top: 40px; padding-bottom: 10px;"
-                     class="box"> <a href="/BookNet/search/searchMember.cls" id="searchIdBtn">검색된 아이디</a> </span>
+                     class="box" id="searchIdBtn">검색된 아이디</span>
                   <div class="width_scroll">
                         <div style="font-size: 14px;" class="boxwrap">
                      <c:forEach var="data" items="${LIST}">
@@ -80,7 +119,7 @@
                   <div style="width: 100%; height: 204px;">
                         <span
                            style="color: #666; font-size: 14px; float: left; padding-top: 40px; padding-bottom: 10px;"
-                           class="box"> <a href="/BookNet/search/searchBook.cls?searchinput=${KEYWORD}" id="searchBookBtn">검색된 책이름</a> </span>
+                           class="box"id="searchBookBtn"> 검색된 책이름</span>
                         <div style="font-size: 14px;" class="boxwrap">
                      <c:forEach var="data" items="${LIST}" begin="0" end="4">
                            <span style="border: solid 4px transparent;" class="box">
@@ -117,7 +156,7 @@
                      <div style="width: 100%; height: 204px;">
                         <span
                            style="color: #666; font-size: 14px; float: left; padding-top: 40px; display: block; text-align: left; width: 100%; padding-bottom: 10px;"
-                           class="box"> <a href="/BookNet/search/searchHash.cls" id="searchHashBtn">검색된 해시태그가 포함된 게시물</a> </span>
+                           class="box"id="searchHashBtn">검색된 해시태그가 포함된 게시물 </span>
                         <!-- 여기부터 게시글  -->
                         <c:forEach var="post" items="${LIST}">
                         <article class="eachPost"

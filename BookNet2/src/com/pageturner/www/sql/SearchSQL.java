@@ -7,6 +7,7 @@ package com.pageturner.www.sql;
  */
 public class SearchSQL {
 	public final int SEL_ALL_SRC = 1001; //모든 검색 결과를 보여줄 질의명령 
+	public final int SEL_MEMB_SRC = 1002; //회원 검색 결과를 보여줄 질의명령 
 
 
 	public String getSQL(int code) {

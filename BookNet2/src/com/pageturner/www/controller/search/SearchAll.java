@@ -20,7 +20,7 @@ public class SearchAll implements PageController {
 	@Override
 	public String exec(HttpServletRequest req, HttpServletResponse resp){
 		String view = "/search/searchAll.jsp";
-
+		System.out.println("##SearchAll.java를 경유했습니다.");
 		//인코딩
 		try {
 			req.setCharacterEncoding("UTF-8");
@@ -49,6 +49,7 @@ public class SearchAll implements PageController {
 			list = sDAO.getAllList(keyword);
 			System.out.println("List+sDAO"+list);
 		}
+		System.out.println("---------------------------------");
 		req.setAttribute("LIST", list);
 		req.setAttribute("KEYWORD", key);
 		req.setAttribute("POST", post);
