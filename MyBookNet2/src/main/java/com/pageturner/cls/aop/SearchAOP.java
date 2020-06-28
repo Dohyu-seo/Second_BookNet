@@ -16,14 +16,13 @@ import com.pageturner.cls.service.MemberService;
 
 @Component
 @Aspect
-
 public class SearchAOP {
 	@Autowired
 	MemberService membSrvc;
 	@Autowired
 	MemberDAO mDAO;
 	
-@Before("execution(* com.pageturner.cls.controller.main.Main.showNonMain(..))")
+	@Before("execution(* com.pageturner.cls.controller.main.Main.showNonMain(..))")
 	public void loginCk(JoinPoint join) {
 		System.out.println("******   loginCk AOP **");
 		// 뷰 지정
@@ -46,5 +45,10 @@ public class SearchAOP {
 				((ModelAndView)obj[1]).setView(new RedirectView("/cls/main/main.cls"));
 				((ModelAndView)obj[1]).addObject("isLogin", true);
 			}
+	}
+	//search에서 session을 담아올 aop
+	@Before("execution(* com.pageturner.cls.controller.search.Search.search*(..))")
+	public void session(JoinPoint join) {
+			System.out.println("search AOP 실행됨");
 	}
 }

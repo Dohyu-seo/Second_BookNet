@@ -11,14 +11,14 @@
 <head>
 <meta charset="UTF-8">
 <title>모든 검색 결과 페이지</title>
-<link rel="stylesheet" href="/BookNet/css/proj_fixed.css">
-<link rel="stylesheet" href="/BookNet/css/modal.css">
-<link rel="stylesheet" href="/BookNet/css/w3.css">
-<link rel="stylesheet" href="/BookNet/css/non_search.css">
+<link rel="stylesheet" href="/cls/css/proj_fixed.css">
+<link rel="stylesheet" href="/cls/css/modal.css">
+<link rel="stylesheet" href="/cls/css/w3.css">
+<link rel="stylesheet" href="/cls/css/non_search.css">
 <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.css" /> -->
-<script type="text/javascript" src="/BookNet/js/jquery-3.5.0.min.js"></script>
-<script type="text/javascript" src="/BookNet/js/fixed.js"></script>
-<script type="text/javascript" src="/BookNet/js/search.js"></script>
+<script type="text/javascript" src="/cls/js/jquery-3.5.0.min.js"></script>
+<script type="text/javascript" src="/cls/js/fixed.js"></script>
+<script type="text/javascript" src="/cls/js/search.js"></script>
 <script>
 /*
 	이 script는 search페이지에서 상세페이지로 이동시킬 때 쓰일 js 입니다.
@@ -29,26 +29,26 @@
 $(document).ready(function() {
 	// 검색된 아이디 클릭
 	$('#searchIdBtn').click(function(){
-	//	$(this).attr('href','/BookNet/search/searchMember.cls');
+	//	$(this).attr('href','/cls/search/searchMember.cls');
 		$('#idKey').val('${KEYWORD}');
 		$('#test').val('${KEYWORD}');
-		$('#frm2').attr('action','/BookNet/search/searchTrampoline.jsp');
+		$('#frm2').attr('action','/cls/search/searchTrampoline.jsp');
 		$('#frm2').submit();
 	})
 	// 검색된 책이름 클릭
 	$('#searchBookBtn').click(function(){
-	//	$(this).attr('href','/BookNet/search/searchBook.cls');
+	//	$(this).attr('href','/cls/search/searchBook.cls');
 		$('#bookKey').val('${KEYWORD}');
 		$('#test').val('${KEYWORD}');
-		$('#frm2').attr('action','/BookNet/search/searchTrampoline.jsp');
+		$('#frm2').attr('action','/cls/search/searchTrampoline.jsp');
 		$('#frm2').submit();
 	})
 	// 검색된 해시태그 클릭
 	$('#searchHashBtn').click(function(){
-	//	$(this).attr('href','/BookNet/search/searchHash.cls');
+	//	$(this).attr('href','/cls/search/searchHash.cls');
 		$('#hashKey').val('${KEYWORD}');
 		$('#test').val('${KEYWORD}');
-		$('#frm2').attr('action','/BookNet/search/searchTrampoline.jsp');
+		$('#frm2').attr('action','/cls/search/searchTrampoline.jsp');
 		$('#frm2').submit();
 	})
 });
@@ -217,7 +217,7 @@ $(document).ready(function() {
                <div
                   style="box-sizing: border-box; font-size: 30px; text-align: center;">
                   <!-- 로고 이미지 혹은 링크 들어갈 자리 class="div_logo" -->
-                  <a href="/BookNet/main/main.cls"><b>PageTurner</b></a>
+                  <a href="/cls/main/main.cls"><b>PageTurner</b></a>
                </div>
             </div>
             <div class="searchbox">
@@ -227,13 +227,13 @@ $(document).ready(function() {
             </div>
             <div class="iconsbox">
            			<div style="float: left; width:80px;"> 
-						<a href="/BookNet/member/logoutProc.cls">로그아웃</a>
-						<!-- <img class="iconimg" id="" src="/BookNet/img/iconmonstr-compass-4-240.png"> -->
+						<a href="/cls/member/logoutProc.cls">로그아웃</a>
+						<!-- <img class="iconimg" id="" src="/cls/img/iconmonstr-compass-4-240.png"> -->
 					</div> 
                <!-- 알람표시아이콘 -->
                <div class="span_icons">
                   <button type="button" class="butt" id="aBtn">
-                     <img class="iconimg" id="" src="/BookNet/img/iconmonstr-bell-7-240.png">
+                     <img class="iconimg" id="" src="/cls/img/iconmonstr-bell-7-240.png">
                   </button>
                   <!-- The Modal -->
                   <div id="actModal" class="modal" role="none">
@@ -253,7 +253,7 @@ $(document).ready(function() {
                </div>
                <div class="span_icons" id=""> 
                   <button type="button" class="butt" id="wBtn">
-                     <img class="iconimg" id="" src="/BookNet/img/iconmonstr-pen-15-240.png">
+                     <img class="iconimg" id="" src="/cls/img/iconmonstr-pen-15-240.png">
                   </button>
                   <!-- The Modal -->
                   <div id="writeModal" class="w3-modal">
@@ -305,7 +305,7 @@ $(document).ready(function() {
                   </div>
                </div> 
                <div class="span_icons"> 
-                  <img class="iconimg" id="" src="/BookNet/img/iconmonstr-user-19-240.png">
+                  <img class="iconimg" id="" src="/cls/img/iconmonstr-user-19-240.png">
                </div>
             </div>
          </div>

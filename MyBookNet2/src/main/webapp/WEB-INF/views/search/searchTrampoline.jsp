@@ -12,22 +12,22 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<script type="text/javascript" src="/BookNet/js/jquery-3.5.0.min.js"></script>
+<script type="text/javascript" src="/cls/js/jquery-3.5.0.min.js"></script>
 <script src = "https://unpkg.com/sweetalert/dist/sweetalert.min.js" ></script>
 <script>
 $(document).ready(function() {
 	if('${param.idKey}' =='${param.test}'){
 		swal ({ text:"Wait!" , title:"Please Wait!" ,  icon:"success" });
 		$('#idKey').val('${param.idKey}');
-		$('#frm').attr('action','/BookNet/search/searchMember.cls');
+		$('#frm').attr('action','/cls/search/searchMember.cls');
 	} else if('${param.bookKey}'=='${param.test}'){
 		swal ({ text:"Wait!" , title:"Please Wait!" ,  icon:"success" });
 		$('#bookKey').val('${param.bookKey}');
-		$('#frm').attr('action','/BookNet/search/searchBook.cls');
+		$('#frm').attr('action','/cls/search/searchBook.cls');
 	} else if('${param.hashKey}'=='${param.test}'){
 		swal ({ text:"Wait!" , title:"Please Wait!" ,  icon:"success" });
 		$('#hashKey').val('${param.hashKey}');
-		$('#frm').attr('action','/BookNet/search/searchHash.cls');
+		$('#frm').attr('action','/cls/search/searchHash.cls');
 	}
 		$('#frm').submit();
 })

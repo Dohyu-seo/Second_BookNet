@@ -165,7 +165,7 @@ $(document).ready(function(){
 		if (e.keyCode == 13) {
 			var key = $('.searchinput').val();
 			$('#searchinput').val(key);
-			$('#frm3').attr('action', '/BookNet/search/searchAll.cls');
+			$('#frm3').attr('action', '/cls/search/searchAll.cls');
 			$('#frm3').submit();
 		}
 	});
@@ -175,7 +175,7 @@ $(document).ready(function(){
 	});
 	
 	$('#more_butt').click(function() { //modal에서 알림페이지로 이동 
-		$(location).attr('href', '/BookNet/alarm/alarmPage.cls');
+		$(location).attr('href', '/cls/alarm/alarmPage.cls');
 	});
 
 	$('#aBtn').click(function() { //modal 열기
@@ -193,7 +193,7 @@ $(document).ready(function(){
 	});
 	
 	$('#myBtn').click(function(){
-		$(location).attr('href', '/BookNet/mypage/mypage.cls');
+		$(location).attr('href', '/cls/mypage/mypage.cls');
 	});
 	
 	$('.likebtn').click(function(){ //like 버튼 클릭시 빨강하트로 변경 
@@ -202,7 +202,7 @@ $(document).ready(function(){
 		
 		//비동기처리 
 		$.ajax({
-			url: '/BookNet/ajax/clickLikeBtn.cls',
+			url: '/cls/ajax/clickLikeBtn.cls',
 			type: 'POST',
 			dataType: 'json',
 			data: {
@@ -231,7 +231,7 @@ $(document).ready(function(){
 	});
 	
 	$('#d-btn').click(function(){ //삭제 버튼을 눌렀을 때 처리이벤트 
-		$('#frm2').attr('action', '/BookNet/post/postDelProc.cls')
+		$('#frm2').attr('action', '/cls/post/postDelProc.cls')
 		$('#frm2').submit();
 	});
 	
@@ -425,7 +425,7 @@ $(document).ready(function(){
 		}
 		
 		//데이터 넘기기
-		$('#frm').attr('action','/BookNet/post/postWriteProc.cls');
+		$('#frm').attr('action','/cls/post/postWriteProc.cls');
 		$('#frm').submit();
 	});
 	
