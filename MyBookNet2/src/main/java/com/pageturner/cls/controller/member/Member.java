@@ -78,7 +78,7 @@ public class Member {
 	// 로그아웃 처리
 	@RequestMapping("/logoutProc.cls")
 	public ModelAndView logoutProc(HttpServletRequest req, ModelAndView mv) {
-		System.out.println("뇨내~?");
+		System.out.println("로그아웃 처리");
 		return mv;
 	}
 }

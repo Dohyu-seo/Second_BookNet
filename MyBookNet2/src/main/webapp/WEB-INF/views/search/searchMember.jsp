@@ -46,7 +46,7 @@
                   <!-- 검색어 -->
                      <div
                         style="height: 204px; float: right; width: 610px; position: relative; top: 30px;">
-                        <div style="height: 100px; text-align: left;">${param.idKey}</div>
+                        <div style="height: 100px; text-align: left;">${KEYWORD}</div>
                      </div>
                </div>
                 <!-- 검색아이디 -->

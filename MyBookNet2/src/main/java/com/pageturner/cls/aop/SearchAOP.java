@@ -1,5 +1,10 @@
 package com.pageturner.cls.aop;
-
+/**
+ * search뷰에 반복적으로 체크해야할 기능을 넣은 AOP다
+ * @author 서동혁
+ * @since  2020-06-29
+ * @version v.1.0
+ */
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
@@ -46,9 +51,9 @@ public class SearchAOP {
 				((ModelAndView)obj[1]).addObject("isLogin", true);
 			}
 	}
-	//search에서 session을 담아올 aop
+	// 검색했을 때 session을 담아올 aop
 	@Before("execution(* com.pageturner.cls.controller.search.Search.search*(..))")
 	public void session(JoinPoint join) {
-			System.out.println("search AOP 실행됨");
+			System.out.println("search AOP 실행됨 - 기능미지정");
 	}
 }

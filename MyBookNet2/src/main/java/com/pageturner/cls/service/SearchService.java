@@ -7,11 +7,11 @@ package com.pageturner.cls.service;
  *
  */
 
-import javax.servlet.http.HttpSession;
+import java.util.List;
+
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.web.servlet.view.RedirectView;
 
 import com.pageturner.cls.dao.SearchDAO;
 import com.pageturner.cls.vo.*;
@@ -21,9 +21,14 @@ public class SearchService {
 	
 	@Autowired
 	SearchDAO sDAO;
-	// 로그인 확인은 membSrvc에서 하고
-	// 여기서는 검색결과를 가져올 SQL설정을 마무리하자.
-	// 검색결과는 대소문자 구분 없이 진행 하도록 해야 한다.
-	public void searchIdCk(MemberVO mVO, HttpSession session) {
+	// DAO 받아오기
+	public List<SearchVO> searchKey(String keyword){
+		System.out.println("### searchKey DAO");
+			List<SearchVO> key = sDAO.searchAll(keyword);
+			
+			System.out.println("서비스에서 뽑은 키값 key.size : " + key.size());
+			System.out.println("서비스에서 뽑은 키값 word : " + keyword);
+		return key;
 	}
+	
 }

@@ -16,9 +16,9 @@
 <script src = "https://unpkg.com/sweetalert/dist/sweetalert.min.js" ></script>
 <script>
 $(document).ready(function() {
-	if('${param.idKey}' =='${param.test}'){
+	if('${param.membKey}' =='${param.test}'){
 		swal ({ text:"Wait!" , title:"Please Wait!" ,  icon:"success" });
-		$('#idKey').val('${param.idKey}');
+		$('#membKey').val('${param.membKey}');
 		$('#frm').attr('action','/cls/search/searchMember.cls');
 	} else if('${param.bookKey}'=='${param.test}'){
 		swal ({ text:"Wait!" , title:"Please Wait!" ,  icon:"success" });
@@ -35,7 +35,7 @@ $(document).ready(function() {
 </head>
 <body>
 <form method="POST" action="" id="frm">
-	<input type="hidden" name="idKey" id="idKey">
+	<input type="hidden" name="membKey" id="membKey">
 	<input type="hidden" name="bookKey"id="bookKey">
 	<input type="hidden" name="hashKey" id="hashKey">
 </form>

@@ -11,7 +11,7 @@
 <mapper namespace="sSQL">
 	<!-- 검색할 때 모든 검색결과를 호출 -->
 	<select id="searchAll" resultType="sVO"  parameterType="string">
-				SELECT 
+			SELECT 
 			     bname ,  MAX(hash) hash, writer , trans , gname , name , id , publish , postcont, prof.save_loc profile, largeimg limg 
 			FROM
 			    booktab b, genretab g 
@@ -32,15 +32,15 @@
 			    AND m.mno = p.mno 
 			    AND p.pno = h.pno 
 			    AND prof.mno = m.mno 
-			    AND (bname LIKE #{key}
-			    OR WRITER LIKE #{key}
-			    OR TRANS LIKE #{key}
-			    OR gname LIKE #{key}
-			    OR hash LIKE #{key}
-			    OR name LIKE #{key}
-			    OR id LIKE #{key}
-			    OR nickname LIKE #{key}
-			    OR publish LIKE #{key})
+			    AND (bname LIKE #{keyword}
+			    OR WRITER LIKE #{keyword}
+			    OR TRANS LIKE #{keyword}
+			    OR gname LIKE #{keyword}
+			    OR hash LIKE #{keyword}
+			    OR name LIKE #{keyword}
+			    OR id LIKE #{keyword}
+			    OR nickname LIKE #{keyword}
+			    OR publish LIKE #{keyword})
 			Group By bname , writer , trans , gname , name , id , nickname , publish , postcont, prof.save_loc, largeimg
 	</select>
 </mapper>

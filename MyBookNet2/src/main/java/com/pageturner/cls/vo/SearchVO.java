@@ -1,5 +1,10 @@
 package com.pageturner.cls.vo;
-
+/**
+ * search뷰에서 사용하게 될 데이터를 저장할 페이지이다.
+ * @author 서동혁
+ * @since  2020-06-29
+ * @version v.1.0
+ */
 import org.apache.ibatis.type.Alias;
 
 @Alias("sVO")
@@ -84,8 +89,8 @@ public class SearchVO {
 	@Override
 	public String toString() {
 		return "SearchVO [pno=" + pno + ", bname=" + bname + ", hash=" + hash + ", writer=" + writer + ", trans="
-				+ trans + ", gname=" + gname + ", name=" + name + ", id=" + id + ", publish="
-				+ publish + ", postcont=" + postcont + ", profile=" + profile + ", limg=" + limg + "]";
+				+ trans + ", gname=" + gname + ", name=" + name + ", id=" + id + ", publish=" + publish + ", postcont="
+				+ postcont + ", profile=" + profile + ", limg=" + limg +"]";
 	}
 	
 	

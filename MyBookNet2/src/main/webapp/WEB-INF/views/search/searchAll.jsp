@@ -30,9 +30,9 @@ $(document).ready(function() {
 	// 검색된 아이디 클릭
 	$('#searchIdBtn').click(function(){
 	//	$(this).attr('href','/cls/search/searchMember.cls');
-		$('#idKey').val('${KEYWORD}');
+		$('#membKey').val('${KEYWORD}');
 		$('#test').val('${KEYWORD}');
-		$('#frm2').attr('action','/cls/search/searchTrampoline.jsp');
+		$('#frm2').attr('action','/cls/search/searchMember.cls');
 		$('#frm2').submit();
 	})
 	// 검색된 책이름 클릭
@@ -40,7 +40,7 @@ $(document).ready(function() {
 	//	$(this).attr('href','/cls/search/searchBook.cls');
 		$('#bookKey').val('${KEYWORD}');
 		$('#test').val('${KEYWORD}');
-		$('#frm2').attr('action','/cls/search/searchTrampoline.jsp');
+		$('#frm2').attr('action','/cls/search/searchBook.cls');
 		$('#frm2').submit();
 	})
 	// 검색된 해시태그 클릭
@@ -48,7 +48,7 @@ $(document).ready(function() {
 	//	$(this).attr('href','/cls/search/searchHash.cls');
 		$('#hashKey').val('${KEYWORD}');
 		$('#test').val('${KEYWORD}');
-		$('#frm2').attr('action','/cls/search/searchTrampoline.jsp');
+		$('#frm2').attr('action','/cls/search/searchHash.cls');
 		$('#frm2').submit();
 	})
 });
@@ -56,8 +56,7 @@ $(document).ready(function() {
 </head>
 <body onload="printClock()" />
 <form method="GET" action="" id="frm2">
-	<input type="hidden" name="test" id="test">
-	<input type="hidden" name="idKey" id="idKey">
+	<input type="hidden" name="membKey" id="membKey">
 	<input type="hidden" name="bookKey"id="bookKey">
 	<input type="hidden" name="hashKey" id="hashKey">
 </form>

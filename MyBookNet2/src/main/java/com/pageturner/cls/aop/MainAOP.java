@@ -1,5 +1,10 @@
 package com.pageturner.cls.aop;
-
+/**
+ * Main뷰에 반복적으로 체크해야할 기능을 넣은 AOP다
+ * @author 서동혁
+ * @since  2020-06-29
+ * @version v.1.0
+ */
 import javax.servlet.http.*;
 
 import org.aspectj.lang.*;
