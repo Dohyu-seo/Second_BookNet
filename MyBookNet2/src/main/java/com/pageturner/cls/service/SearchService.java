@@ -23,11 +23,9 @@ public class SearchService {
 	SearchDAO sDAO;
 	// DAO 받아오기
 	public List<SearchVO> searchKey(String keyword){
-		System.out.println("### searchKey DAO");
+		System.out.println("###  SearchService : DAO");
 			List<SearchVO> key = sDAO.searchAll(keyword);
-			
-			System.out.println("서비스에서 뽑은 키값 key.size : " + key.size());
-			System.out.println("서비스에서 뽑은 키값 word : " + keyword);
+			System.out.println("##### Service key.size : " + key.size());
 		return key;
 	}
 	

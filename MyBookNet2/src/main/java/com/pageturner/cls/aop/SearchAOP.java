@@ -53,7 +53,29 @@ public class SearchAOP {
 	}
 	// 검색했을 때 session을 담아올 aop
 	@Before("execution(* com.pageturner.cls.controller.search.Search.search*(..))")
-	public void session(JoinPoint join) {
-			System.out.println("search AOP 실행됨 - 기능미지정");
+	public void searchIdCk(JoinPoint join) {
+//			System.out.println("search AOP  - IdCk");
+		
+			Object[] obj = join.getArgs();
+			
+			HttpServletRequest req = (HttpServletRequest)obj[0];
+			HttpSession session = req.getSession();
+			String view = "";
+			// 아이디 가져오기
+			String sid = (String)session.getAttribute("SID");
+			// 아아디세션 만료되었는지 확인하기
+			if(sid != null) {
+				System.out.println("# SearchAOP IdCk : " + sid);
+				String tmp = req.getRequestURI();
+				tmp = tmp.substring(tmp.lastIndexOf("/")+1, tmp.lastIndexOf("."));
+					// 뷰 담기
+					if(!tmp.equals("searchError")){ view = (tmp.equals("searchAll")) ? "search/searchAll" : (tmp.equals("searchBook"))? "search/searchBook":(tmp.equals("searchHash"))?"search/searchHash":"search/searchMember";
+					} else if(tmp.equals("searchError"))view="search/searchError";
+					System.out.println("## SearchAOP view : " + view);
+			} else {
+				System.out.println("아이디세션 만료");
+				view = "member/login";
+				((ModelAndView)obj[1]).setViewName(view);
+			}
 	}
 }

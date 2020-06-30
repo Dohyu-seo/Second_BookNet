@@ -22,7 +22,7 @@ public class SearchDAO {
 	
 	//검색한 결과를 회원에게 보여질 게시글
 	public List<SearchVO> searchAll(String keyword) {
-		System.out.println("DAO  keyword : " + keyword);
+		System.out.println("####  DAO keyword : " + keyword);
 		return sqlSession.selectList("sSQL.searchAll", keyword);	
 	}
 	

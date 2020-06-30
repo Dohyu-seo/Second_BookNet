@@ -27,108 +27,93 @@ public class Search {
 	
 	// 검색한 결과 보여주기(ALL)
 	@RequestMapping("/searchAll.cls")
-	public ModelAndView searchAll(ModelAndView mv, HttpSession session, HttpServletRequest req) {
-		// 뷰 지정
-		String view = "search/searchAll";
-		// 아이디 가져오기
-		String sid = (String)session.getAttribute("SID");
-		// 아아디세션 만료되었는지 확인하기
-		if(sid != null) {
-			System.out.println("컨트롤러에서 아이디확인 : " + sid);
+	public ModelAndView searchAll(HttpServletRequest req, ModelAndView mv) {
+			// 뷰 지정
+			String view = "search/searchAll";
 			// 파라미터에서 검색값 가져오기
-			String tmp = req.getParameter("searchinput");
-			String keyword = "%" + tmp + "%";
-			List<SearchVO> list = sSrvc.searchKey(keyword);
-			
-			//검색결과 콘솔
+			String keyword = req.getParameter("searchinput");
+			// DB에서 가져올 때 사용할 searchinput 변수
+			String key = "%" + keyword + "%";
+			List<SearchVO> list = sSrvc.searchKey(key);
+			// 검색결과 콘솔
 			System.out.println("검색 키워드 :"+ keyword);
-//			// 검색된 값 세션에 담기s
-//			session.setAttribute("KEYWORD", keyword);
+			System.out.println("____________________________");
+			// 검색된 값 세션에 담기
 			mv.addObject("KEYWORD", keyword);
+			// 화면에 보여줄 오브젝트
 			mv.addObject("LIST", list);
 			mv.setViewName(view);
 			return mv;
-		}
-		else {
-			System.out.println("아이디세션 만료");
-			view = "member/login";
-			mv.setViewName(view);
-			return mv;
-		}
+
 	}
 	// 검색한 결과 보여주기(book)
 	@RequestMapping("/searchBook.cls")
-	public ModelAndView searchBook(ModelAndView mv, HttpSession session, HttpServletRequest req) {
+	public ModelAndView searchBook(HttpServletRequest req, ModelAndView mv) {
 		String view = "search/searchBook";
-		// 아이디 가져오기
-		String sid = (String)session.getAttribute("SID");
-		// 아아디세션 만료되었는지 확인하기
-		if(sid != null) {
-			System.out.println(sid);
 			// 파라미터에서 검색값 가져오기
 			String keyword = req.getParameter("bookKey");
-			//검색결과 콘솔
-			System.out.println("책검색 키워드 :"+ keyword);
+			String key = "%" + keyword + "%";
+			List<SearchVO> list = sSrvc.searchKey(key);
+			// 검색결과 콘솔
+			System.out.println("책 검색 키워드 :"+ keyword);
+			System.out.println("____________________________");
 			// 검색된 값 세션에 담기
-			session.setAttribute("KEYWORD", keyword);
+			mv.addObject("KEYWORD", keyword);
+			// 화면에 보여줄 오브젝트
+			mv.addObject("LIST", list);
 			mv.setViewName(view);
 			return mv;
-		}
-		else {
-			System.out.println("아이디세션 만료");
-			view = "member/login";
-			mv.setViewName(view);
-			return mv;
-		}
 	}
 	// 검색한 결과 보여주기(Hash)
 	@RequestMapping("/searchHash.cls")
-	public ModelAndView searchHash(ModelAndView mv, HttpSession session, HttpServletRequest req) {
+	public ModelAndView searchHash(HttpServletRequest req, ModelAndView mv) {
 		String view = "search/searchHash";
-		// 아이디 가져오기
-		String sid = (String)session.getAttribute("SID");
-		// 아아디세션 만료되었는지 확인하기
-		if(sid != null) {
-			System.out.println(sid);
 			// 파라미터에서 검색값 가져오기
 			String keyword = req.getParameter("hashKey");
-			//검색결과 콘솔
-			System.out.println("해시태그검색 키워드 :"+ keyword);
+			String key = "%" + keyword + "%";
+			List<SearchVO> list = sSrvc.searchKey(key);
+			// 검색결과 콘솔
+			System.out.println("해쉬태그 검색 키워드 :"+ keyword);
+			System.out.println("____________________________");
 			// 검색된 값 세션에 담기
-			session.setAttribute("KEYWORD", keyword);
+			mv.addObject("KEYWORD", keyword);
+			// 화면에 보여줄 오브젝트
+			mv.addObject("LIST", list);
 			mv.setViewName(view);
 			return mv;
-		}
-		else {
-			System.out.println("아이디세션 만료");
-			view = "member/login";
-			mv.setViewName(view);
-			return mv;
-		}
 	}
 	// 검색한 결과 보여주기(Member)
 	@RequestMapping("/searchMember.cls")
-	public ModelAndView searchMember(ModelAndView mv, HttpSession session, HttpServletRequest req) {
+	public ModelAndView searchMember(HttpServletRequest req, ModelAndView mv) {
 		String view = "search/searchMember";
-		// 아이디 가져오기
-		String sid = (String)session.getAttribute("SID");
-		// 아아디세션 만료되었는지 확인하기
-		if(sid != null) {
-			System.out.println(sid);
 			// 파라미터에서 검색값 가져오기
 			String keyword = req.getParameter("membKey");
+			String key = "%" + keyword + "%";
+			List<SearchVO> list = sSrvc.searchKey(key);
 			//검색결과 콘솔
 			System.out.println("아이디검색 키워드 :"+ keyword);
+			System.out.println("____________________________");
 			// 검색된 값 세션에 담기
-			session.setAttribute("KEYWORD", keyword);
+			mv.addObject("KEYWORD", keyword);
+			// 화면에 보여줄 오브젝트
+			mv.addObject("LIST",list);
 			mv.setViewName(view);
 			return mv;
-		}
-		else {
-			System.out.println("아이디세션 만료");
-			view = "member/login";
-			mv.setViewName(view);
-			return mv;
-		}
+	}
+	// 검색한 결과 보여주기(Member)
+	@RequestMapping("/searchError.cls")
+	public ModelAndView searchError(HttpServletRequest req, ModelAndView mv) {
+		String view = "search/searchError";
+		mv.setViewName(view);
+		return mv;
+	}
+	
+	// 도서관 검색
+	@RequestMapping("/LibraryMap.cls")
+	public ModelAndView libMap(HttpServletRequest req, ModelAndView mv) {
+		String view = "search/LibraryMap";
+		
+		mv.setViewName(view);
+		return mv;
 	}
 }

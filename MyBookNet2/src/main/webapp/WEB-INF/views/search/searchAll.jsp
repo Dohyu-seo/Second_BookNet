@@ -108,7 +108,7 @@ $(document).ready(function() {
                            class="boxwrap">
                      <c:forEach var="data" items="${LIST}">
                            <span style="border: solid 4px transparent;" class="box">
-                              <a href="${data.limg}"
+                              <a href="${data.profile}"
                               style="text-decoration: unset; color: #F7B3D2; width: 70px; height: 70px;">${data.id}</a>
                            </span>
                      </c:forEach>

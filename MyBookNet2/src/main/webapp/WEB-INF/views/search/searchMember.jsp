@@ -58,7 +58,8 @@
                         <div style="font-size: 14px;" class="boxwrap">
                      <c:forEach var="data" items="${LIST}">
                            <span style="border: solid 4px transparent;" class="box">
-                              <!-- ${data.profile} --><img src="https://img.icons8.com/dusk/64/000000/no-camera.png" 
+                              <!-- ${data.profile} -->
+                              <img src="https://img.icons8.com/dusk/64/000000/no-camera.png" 
                               style="text-decoration: unset; color: #F7B3D2; width: 70px; height: 70px;">
                            </span>
                      </c:forEach>
@@ -67,7 +68,7 @@
                            class="boxwrap">
                      <c:forEach var="data" items="${LIST}">
                            <span style="border: solid 4px transparent;" class="box">
-                              <a href="${data.limg}"
+                              <a href="${data.profile}"
                               style="text-decoration: unset; color: #F7B3D2; width: 70px; height: 70px;">${data.id}</a>
                            </span>
                      </c:forEach>
