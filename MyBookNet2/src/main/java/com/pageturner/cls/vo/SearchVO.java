@@ -1,11 +1,11 @@
 package com.pageturner.cls.vo;
+import org.apache.ibatis.type.Alias;
 /**
  * search뷰에서 사용하게 될 데이터를 저장할 페이지이다.
  * @author 서동혁
  * @since  2020-06-29
  * @version v.1.0
  */
-import org.apache.ibatis.type.Alias;
 
 @Alias("sVO")
 public class SearchVO {

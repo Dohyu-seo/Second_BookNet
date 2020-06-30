@@ -7,7 +7,6 @@
 <title>LibraryMap</title>
 </head>
 <body>
-<div></div>
 	<jsp:include page="/WEB-INF/views/fixed.jsp"/>
 </body>
 </html>
