@@ -1,0 +1,40 @@
+.libPoint{
+    position: absolute;
+    top: 68px;
+    left: 400px;
+	border: 3px solid red;
+    width: 1020px;
+    height: 404px;
+    }
+.libPointMap{
+	position: absolute;
+	top: 400px;
+	border: 3px solid red;
+    width: 1020px;
+    height: 410px;
+}
+.trText{
+	padding-left: 20px;
+}
+.libmap{
+	position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border: 1px solid #000;
+    opacity: 0.1;
+}
+.mapImg{
+	display: block;
+    position: relative;
+    height: 134px;
+    width: 550px;
+    margin: 2px 0 24px;
+}
+.mapLay{
+	border: 1px solid blue;
+	position: relative;
+	left:24%;
+	width:550px;	
+}

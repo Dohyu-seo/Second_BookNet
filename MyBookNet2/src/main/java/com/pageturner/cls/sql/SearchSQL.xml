@@ -32,15 +32,15 @@
 			    AND m.mno = p.mno 
 			    AND p.pno = h.pno 
 			    AND prof.mno = m.mno 
-			    AND (bname LIKE #{keyword}
-			    OR WRITER LIKE #{keyword}
-			    OR TRANS LIKE #{keyword}
-			    OR gname LIKE #{keyword}
-			    OR hash LIKE #{keyword}
-			    OR name LIKE #{keyword}
-			    OR id LIKE #{keyword}
-			    OR nickname LIKE #{keyword}
-			    OR publish LIKE #{keyword})
+			    AND ( UPPER(bname) LIKE UPPER(#{keyword})
+			    OR UPPER(WRITER) LIKE UPPER(#{keyword})
+			    OR UPPER(TRANS) LIKE UPPER(#{keyword})
+			    OR UPPER(gname) LIKE UPPER(#{keyword})
+			    OR UPPER(hash) LIKE UPPER(#{keyword})
+			    OR UPPER(name) LIKE UPPER(#{keyword})
+			    OR UPPER(id) LIKE UPPER(#{keyword})
+			    OR UPPER(nickname) LIKE UPPER(#{keyword})
+			    OR UPPER(publish) LIKE UPPER(#{keyword}))
 			Group By bname , writer , trans , gname , name , id , nickname , publish , postcont, prof.save_loc, largeimg
 	</select>
 </mapper>
