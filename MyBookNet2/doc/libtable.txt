@@ -1,0 +1,49 @@
+    -- 서울 도서관 API 받을 테이블
+    -- @author 서동혁
+    -- @since 2020-07-03
+    --https://data.seoul.go.kr/dataList/OA-15480/S/1/datasetView.do
+    --http://openapi.seoul.go.kr:8088/427a68556f3530323334526456556d/xml/SeoulPublicLibraryInfo/0/176/
+create table LibraryInfo(
+    -- 도서관 일련번호
+    libNO NUMBER(4)
+        CONSTRAINT LINFO_LNO_PK PRIMARY KEY,        
+    -- 도서관 명
+    libName VARCHAR2(100 CHAR)
+        CONSTRAINT LINFO_LNAME_NN NOT NULL,
+    -- 구 코드
+    gucode NUMBER(4)
+        CONSTRAINT LINFO_GCODE_NN NOT NULL,
+    -- 구 명
+    guname VARCHAR2(10 CHAR)
+        CONSTRAINT LINFO_GNAME_NN NOT NULL,
+    -- 주소
+    adres VARCHAR2(200 CHAR)
+        CONSTRAINT LINFO_ADRES_NN NOT NULL,
+    -- 전화번호
+    tel VARCHAR2(13 CHAR)
+        CONSTRAINT LINFO_TEL_NN NOT NULL
+        CONSTRAINT LINFO_TEL_UK UNIQUE,
+    -- 팩스번호
+    fxnum VARCHAR2(13 CHAR),
+    -- 홈페이지 url
+    liburl VARCHAR2(200 CHAR),
+    -- 정기 휴관일
+    cdate VARCHAR2(60 CHAR),
+    -- 도서관 구분명
+    division VARCHAR2(10 CHAR),
+    -- 위도
+    xcnts NUMBER(30)
+        CONSTRAINT LINFO_XCN_NN NOT NULL,
+    -- 경도
+    ydnts NUMBER(30)
+        CONSTRAINT LINFO_YDN_NN NOT NULL,        
+    
+    CHARGER_EMAIL/>
+    LBRRY_INTRCN/>
+    FOND_YEAR/>
+    MBER_SBSCRB_RQISIT/>
+    LON_GDCC/>
+    TFCMN/>
+    FLOOR_DC/>
+    );
+    
