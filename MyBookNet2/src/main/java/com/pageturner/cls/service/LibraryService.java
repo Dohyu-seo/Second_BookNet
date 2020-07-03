@@ -19,58 +19,62 @@ import com.pageturner.cls.dao.*;
 
 @Service
 public class LibraryService implements LibraryAPI {
-	@Autowired
-	LibAPI lApi;
-	
-	@Autowired
-	WebConnection webConn;
-	
-	@Autowired
-	ParsingLibraryInfo parsing;
 
-	String address = null;
-	String json = null;
-	ArrayList<BookVO> list;
-	
-	//게시글 작성시 도서검색 요청이 들어온 경우 
 	@Override
-	public String LibraryAPI(int categoryId, String keyword) {
-		// TODO Auto-generated method stub
-		String base = selApi.selectUrl(selApi.SEARCH);
-		
-		try {
-			//api에서부터 가져온 도서정보를 gson으로 받기 
-			String str = URLEncoder.encode(keyword, "UTF-8");
-			address = base + str + "&output=json&maxResults=30&categoryId=" + categoryId;
-
-			json = webConn.webConnection(address);
-			
-			//웹에서 받아온 도서정보를 파싱시켜줄 클래스 호출
-			this.list = parsing.parsingBookInfo(json);
-		} catch(Exception e) {
-			e.printStackTrace();
-		}
-		
-		//검색된 결과를 db에 저장시켜줄 처리전담 dao 호출 
-		
-		return json;
+	public String LibraryAPI(String keyword) {
+		return null;
 	}
-	
-	//베스트셀러 
-	public ArrayList<BookVO> interparkAPI(int categoryId) {
-		String base = selApi.selectUrl(selApi.BESTSELL);//이때 base는 categoryId= 로 마무리 되어 있음.
-		
-		try {
-			address = base + categoryId + "&output=json&maxResults=5";
-			
-			json = webConn.webConnection(address);
-			
-			this.list = parsing.parsingBookInfo(json);
-		} catch(Exception e) {
-			e.printStackTrace();
-		}
-		
-		return list;
-	}
+//	@Autowired
+//	LibAPI lApi;
+//	
+//	@Autowired
+//	WebConnection webConn;
+//	
+//	@Autowired
+//	ParsingLibraryInfo parsing;
+//
+//	String address = null;
+//	String json = null;
+//	ArrayList<LibraryVO> list;
+//	
+//	//게시글 작성시 도서검색 요청이 들어온 경우 
+//	@Override
+//	public String LibraryAPI(String keyword) {
+//		String base = lApi.selectUrl(lApi.SEARCH);
+//		
+//		try {
+//			//api에서부터 가져온 도서정보를 gson으로 받기 
+//			String str = URLEncoder.encode(keyword, "UTF-8");
+//			address = base + "&lbrry_name="+ str;
+//
+//			json = webConn.webConnection(address);
+//			
+//			//웹에서 받아온 도서정보를 파싱시켜줄 클래스 호출
+//			this.list = parsing.parsingLibraryInfo(json);
+//		} catch(Exception e) {
+//			e.printStackTrace();
+//		}
+//		
+//		//검색된 결과를 db에 저장시켜줄 처리전담 dao 호출 
+//		
+//		return json;
+//	}
+//	
+//	//베스트셀러 
+//	public ArrayList<BookVO> interparkAPI(int categoryId) {
+//		String base = selApi.selectUrl(selApi.BESTSELL);//이때 base는 categoryId= 로 마무리 되어 있음.
+//		
+//		try {
+//			address = base + categoryId + "&output=json&maxResults=5";
+//			
+//			json = webConn.webConnection(address);
+//			
+//			this.list = parsing.parsingBookInfo(json);
+//		} catch(Exception e) {
+//			e.printStackTrace();
+//		}
+//		
+//		return list;
+//	}
 	
 }

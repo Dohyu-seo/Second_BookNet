@@ -112,7 +112,6 @@ public class Search {
 	@RequestMapping("/LibraryMap.cls")
 	public ModelAndView libMap(HttpServletRequest req, ModelAndView mv) {
 		String view = "search/LibraryMap";
-		
 		mv.setViewName(view);
 		return mv;
 	}

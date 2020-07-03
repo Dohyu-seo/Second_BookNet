@@ -13,5 +13,5 @@ import java.util.*;
 import com.pageturner.cls.vo.*;
 
 public interface LibraryAPI {
-	public String LibraryAPI(int categoryId, String keyword);
+	public String LibraryAPI(String keyword);
 }
